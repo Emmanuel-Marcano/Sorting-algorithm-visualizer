@@ -1,0 +1,155 @@
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+}
+
+.logo-area{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header{
+    padding: 30px 0;
+    width: 100%;
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+
+    
+    background-color: azure;
+}
+
+.container{
+    width: 100%;
+    flex-grow: 1;
+    /* width: 500px; */
+    margin: 0 auto;
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 10px;
+    height: 50vh;
+
+}
+
+footer{
+    width: 100%;
+    background-color: azure;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    /* display: flex;
+    justify-content: center;
+    align-items: flex-end; */
+    background-color: azure;
+    width: 40px;
+    border: 1px solid black;
+    padding-bottom: 20px;
+    transition: height 1s ease, color 1s ease;
+}
+
+.box-3{
+    height: 200px;
+}
+
+
+.array-btn{
+    cursor: pointer;
+}
+
+.sort-btn{
+    cursor: pointer;
+}
+
+.step-sort-btn{
+    cursor: pointer;
+}
+
+.step-sort-btn-2{
+    cursor: pointer;
+}
+
+
+
+/*Range style*/
+#range-slider__range {
+    appearance: none;
+    width: 300px;
+    
+
+    height: 10px;
+    border-radius: 5px;
+    background: #d7dcdf; 
+    outline: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /*Range black ⚫ thumb*/
+  #range-slider__range::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: #2c3e50;
+    cursor: pointer;
+    transition: background 0.15s ease-in-out;
+  }
+  
+  /*On hover change colour of black thumb into green 🟢 and scale size*/
+  #range-slider__range::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    background: #1abc9c;}
+  
+  #range-slider__range:active::-webkit-slider-thumb {
+    transform: scale(1.1);
+    background: #1abc9c;}
+  
+  /*Range current value*/
+  #range-slider__value {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    color: #fff;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    background: #2c3e50;
+    padding: 5px 10px;
+    margin-left: 8px;
+  }
+  
+  #range-slider__value:after {
+    position: absolute;
+    top: 8px;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-right: 7px solid #2c3e50;
+    border-bottom: 7px solid transparent;
+    content: "";
+  }
+  
+  
+
