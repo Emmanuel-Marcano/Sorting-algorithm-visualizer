@@ -40,19 +40,34 @@ slider.oninput = function() {
 
 
 let container = document.querySelector(".container")
-let arrayInput = document.querySelector(".arrayInput")
-let form = document.querySelector(".form")
 let sortBtn = document.querySelector(".sort-btn")
-let stepSort= document.querySelector(".step-sort-btn")
 let stepSort2= document.querySelector(".step-sort-btn-2")
+
+ // ************** Initializes values for the step sort ******************** //
+
+let iteration = 1
+let i = 1;
+let j = 0;
+
+// ************** Initializes values for the step sort ******************** //
+
 
 
 slider.addEventListener('change', function(e){
-    if(container.firstElementChild){
+    if(container.firstChild){
         while(container.firstChild){
             container.removeChild(container.firstChild)
         }
     }
+
+
+    // ************** Resets the step sort ******************** //
+
+    iteration = 1
+    i = 1
+    j = 0
+
+    // ************** Resets the step sort ******************** //
     
 
     let input = slider.value
@@ -108,35 +123,14 @@ sortBtn.addEventListener("click", function(){
     }
 })
 
-let z = 1
-stepSort.addEventListener("click", function(){
-    let box = document.querySelectorAll(".box")
-    if(z > 1){
-        z++
-    }
-    
-            for(let j = 0; j < box.length - z; j++){
-                console.log("i = ", z)
-                console.log("j = ", j)
-                
-                if(parseInt(box[j].innerText) > parseInt(box[j+1].innerText)){
-                    let temp = box[j].innerText
-                    box[j].innerText = box[j+1].innerText
-                    box[j+1].innerText = temp
-                    box[j].style.height = `${box[j].innerText}px`
-                    box[j+1].style.height = `${box[j+1].innerText}px`
-            }
-        }
-})
 
-let i = 1;
-let j = 0;
-let iteration = 1
+
+
 
 stepSort2.addEventListener("click", function(){
     let box = document.querySelectorAll(".box")
 
-    while( i < box.length * box.length){
+    while( i < box.length * (box.length/2)){
         console.log("outer = ",i)
            
         while( j < box.length - iteration ){
