@@ -100,17 +100,27 @@ function bubbleSort(arr) {
 
 
 sortBtn.addEventListener("click", function(){
+
+
+
     let box = document.querySelectorAll(".box")
-   
-        for(let i = 1; i < box.length; i++){
-           
-            for(let j = 0; j < box.length - i; j++){
+
+    let myfunc = setInterval(function(){
+
+        while( i < box.length * (box.length/2)){
+            console.log("outer = ",i)
+               
+            while( j < box.length - iteration ){
+    
+                console.log("inner = ",j)
+    
                 if(j != 0 ){
                     box[j-1].style.backgroundColor = 'azure'
-    
                 }
+    
                  box[j].style.backgroundColor = 'green'
                  box[j+1].style.backgroundColor = 'green'
+                
                
                 if(parseInt(box[j].innerText) > parseInt(box[j+1].innerText)){
                     let temp = box[j].innerText
@@ -118,9 +128,64 @@ sortBtn.addEventListener("click", function(){
                     box[j+1].innerText = temp
                     box[j].style.height = `${box[j].innerText}px`
                     box[j+1].style.height = `${box[j+1].innerText}px`
+                    box[j].style.backgroundColor = 'red'
+                }
+    
+                j++
+                if(j == box.length - iteration ){
+                    j=0
+                    iteration++
+                }
+                break;
             }
-        }
+          
+            i++
+            break;
     }
+
+    if(i === box.length * (box.length/2)){
+        clearInterval(myfunc)
+    }
+    
+
+
+
+    },100)
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    // let box = document.querySelectorAll(".box")
+    // for(let i = 1; i < box.length; i++){
+           
+    //         for(let j = 0; j < box.length - i; j++){
+    //             if(j != 0 ){
+    //                 box[j-1].style.backgroundColor = 'azure'
+    
+    //             }
+    //              box[j].style.backgroundColor = 'green'
+    //              box[j+1].style.backgroundColor = 'green'
+               
+    //             if(parseInt(box[j].innerText) > parseInt(box[j+1].innerText)){
+    //                 let temp = box[j].innerText
+    //                 box[j].innerText = box[j+1].innerText
+    //                 box[j+1].innerText = temp
+    //                 box[j].style.height = `${box[j].innerText}px`
+    //                 box[j+1].style.height = `${box[j+1].innerText}px`
+    //         }
+    //     }
+    // }
+
 })
 
 
@@ -151,6 +216,7 @@ stepSort2.addEventListener("click", function(){
                 box[j+1].innerText = temp
                 box[j].style.height = `${box[j].innerText}px`
                 box[j+1].style.height = `${box[j+1].innerText}px`
+                box[j].style.backgroundColor = 'red'
             }
 
             j++
