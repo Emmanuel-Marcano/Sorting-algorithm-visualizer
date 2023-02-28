@@ -62,11 +62,16 @@ footer{
     /* display: flex;
     justify-content: center;
     align-items: flex-end; */
+    position: relative;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
     background-color: azure;
     width: 40px;
     border: 1px solid black;
     padding-bottom: 20px;
-    transition: height 1s ease, background-color 0.5s ease;
+    transition: height 1s ease, background-color 0.5s ease, left 1s ease, transform 1s ease;
 }
 
 .box-3{

@@ -3,6 +3,10 @@ var slider = document.getElementById("range-slider__range");
 var output = document.getElementById("range-slider__value");
 let speedSliderOutput = document.querySelector(".speed-slider-value")
 let speedSlider = document.querySelector(".speed-slider")
+let container = document.querySelector(".container")
+let bubbleSortBtn = document.querySelector(".bubble-sort-btn")
+let selectionSortBtn = document.querySelector(".selection-sort-btn")
+let stopIntervalExecution = false
 
 // output.innerHTML = slider.value;
 
@@ -22,68 +26,24 @@ speedSlider.oninput = function() {
 }
 
 
+slider.addEventListener('input', function(){
 
-
-
-
-let container = document.querySelector(".container")
-let bubbleSortBtn = document.querySelector(".bubble-sort-btn")
-let selectionSortBtn = document.querySelector(".selection-sort-btn")
-
-let stepSort2= document.querySelector(".step-sort-btn-2")
-let stopExec = false
-
-
-/*****    declares values for the selection sort btn */  
-let iteration = 0
-let lowest;
-
-
-slider.addEventListener('change', function(e){
     if(container.firstChild){
-        while(container.firstChild){
-            container.removeChild(container.firstChild)
-        }
+        removeAllBoxes()
     }
-
-
-    // ************** Stops the setInterval from executing and intializes values for the selection sort  ******************** //
-    iteration = 0
-    i = 0
-    j = iteration + 1
-    lowest = iteration
-
-    stopExec = true
+    
+    // ************** Stops the setInterval from executing  ******************** //
+    
+    stopIntervalExecution = true
 
     // **************  Stops the setInterval from executing ******************** //
     
-
     let input = slider.value
-   
-     let array = generateRandomizedArray(input)
-
-
-      for(let i = 0; i < array.length; i++){
-        let box = document.createElement("div")
-        box.classList.add("box")
-        box.innerText = array[i]
-        box.style.height = `${array[i]}px`
-        container.append(box)
-      }
+    let array = generateRandomizedArray(input)
+    createBoxes(array)
 })
 
-function bubbleSort(arr) {
-    for(let i = 0; i < arr.length; i++){
-        for(let j = 0; j < arr.length; j++){
-            if(arr[j] > arr[j+1]){
-                let temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp
-            }
-        }
-    }
-    return arr
-}
+// 
 
 
 
@@ -92,15 +52,20 @@ bubbleSortBtn.addEventListener("click", function(){
 //  ********* Select and retrieve all of the currently available box nodes ******
     let box = document.querySelectorAll(".box")
     let currentBoxLength = box.length * (box.length/2)
-    stopExec = false
+    stopIntervalExecution = false
+
     iteration = 1
     i = 0
     j = 0
 
     let myfunc = setInterval(function(){
 
+        // box[j].style.left = `0px`
+        // box[j+1].style.left = `0px`
+
         while( i < currentBoxLength){
             console.log("outer = ",i)
+           
                
             while( j < box.length - iteration ){
     
@@ -115,18 +80,42 @@ bubbleSortBtn.addEventListener("click", function(){
                 
                
                 if(parseInt(box[j].innerText) > parseInt(box[j+1].innerText)){
+
+
                     let temp = box[j].innerText
+
+                   
+
+                    // box[j].style.left = `${box[j+1].getBoundingClientRect().left - box[j].getBoundingClientRect().left }px`
+                    // box[j+1].style.left = `${box[j].getBoundingClientRect().left - box[j+1].getBoundingClientRect().left }px`
+
+                    // box[j].style.transform = `translateX(${box[j+1].getBoundingClientRect().left - box[j].getBoundingClientRect().left }px)`
+                    // box[j+1].style.transform = `translateX(${box[j].getBoundingClientRect().left - box[j+1].getBoundingClientRect().left }px)`
+
+
+
+                    // let temp = box[j] 
+                    // box[j] = box[j].nextSibling
+                    // box[j].nextSibling = temp
+
+
+
+
+
                     box[j].innerText = box[j+1].innerText
                     box[j+1].innerText = temp
                     box[j].style.height = `${box[j].innerText}px`
                     box[j+1].style.height = `${box[j+1].innerText}px`
-                    // box[j].style.backgroundColor = 'red'
+                    box[j].style.backgroundColor = 'red'
                 }
     
                 j++
                 if(j == box.length - iteration ){
-                    j=0
+                    j = 0
                     iteration++
+
+
+
                 }
                 break;
             }
@@ -138,7 +127,7 @@ bubbleSortBtn.addEventListener("click", function(){
     // **** if the current loop reached its end or if stop executing is true then
     // stop the interval 
 
-    if(i === currentBoxLength || stopExec){
+    if(i === currentBoxLength || stopIntervalExecution){
         clearInterval(myfunc)
     }
     
@@ -147,6 +136,76 @@ bubbleSortBtn.addEventListener("click", function(){
 
 })
 
+
+
+
+selectionSortBtn.addEventListener("click", function(){
+
+    let box = document.querySelectorAll(".box")
+    let currentBoxLength =  box.length * ( box.length / 2 )
+    stopIntervalExecution = false
+    let iteration = 0
+    let i = 0
+    let j = iteration + 1
+    let lowest = iteration
+
+    let myfunc = setInterval(function(){
+
+        while( i < currentBoxLength){
+            console.log("iteration = ", iteration)
+            console.log("outer i = ",i)
+           
+            while( j < box.length ){
+
+                console.log("inner j = ",j)
+
+                if(parseInt(box[j].innerText) < parseInt(box[lowest].innerText)){
+                    lowest = j
+                }
+             
+                j++
+
+                if(j === box.length) {
+
+                    console.log(`lowest found = ${box[lowest].innerText}`)
+
+                    let temp = box[iteration].innerText
+                    box[iteration].innerText = box[lowest].innerText
+                    box[lowest].innerText = temp
+                    box[iteration].style.height = `${box[iteration].innerText}px`
+                    box[lowest].style.height = `${box[lowest].innerText}px`
+                    
+                    
+                    box[iteration].style.backgroundColor = '#2EE59D'
+
+                    iteration++
+                    lowest = iteration
+                    j = iteration + 1
+                   
+                }
+
+                break;
+            }
+
+          
+            i++
+            break;
+    }
+
+    // **** if the current loop reached its end or if stop executing is true then
+    // stop the interval 
+
+    if(i === currentBoxLength || stopIntervalExecution){
+        clearInterval(myfunc)
+    }
+    
+    },speedSlider.value)
+})
+
+
+/*
+
+let stepSort2= document.querySelector(".step-sort-btn-2")
 function selectionSort(arr){
     for(let i = 0; i < arr.length; i++) {
 
@@ -169,74 +228,7 @@ function selectionSort(arr){
     return arr
 }
 
-
-selectionSortBtn.addEventListener("click", function(){
-
-    let box = document.querySelectorAll(".box")
-    let currentBoxLength = box.length * box.length
-    stopExec = false
-    iteration = 0
-    i = 0
-    j = iteration + 1
-    lowest = iteration
-
-    let myfunc = setInterval(function(){
-
-        while( i < currentBoxLength){
-            console.log("iteration = ", iteration)
-            console.log("outer i = ",i)
-           
-            while( j < box.length ){
-
-                console.log("inner j = ",j)
-
-                if(parseInt(box[j].innerText) < parseInt(box[lowest].innerText)){
-                    lowest = j
-                }
-             
-                j++
-
-                if(j === box.length ){
-
-                    console.log(`lowest found = ${box[lowest].innerText}`)
-
-                    let temp = box[iteration].innerText
-                    box[iteration].innerText = box[lowest].innerText
-                    box[lowest].innerText = temp
-                    box[iteration].style.height = `${box[iteration].innerText}px`
-                    box[lowest].style.height = `${box[lowest].innerText}px`
-                    box[lowest].style.backgroundColor = 'red'
-
-                    box[iteration].style.backgroundColor = '#2EE59D'
-
-                    iteration++
-                    lowest = iteration
-                    j = iteration + 1
-                   
-                }
-
-                break;
-            }
-
-          
-            i++
-            break;
-    }
-
-    // **** if the current loop reached its end or if stop executing is true then
-    // stop the interval 
-
-    if(i === currentBoxLength || stopExec){
-        clearInterval(myfunc)
-    }
-    
-
-    },speedSlider.value)
-
-
-})
-
-
+*/
 
 
 
@@ -284,14 +276,40 @@ selectionSortBtn.addEventListener("click", function(){
 // })
 
 
+// function bubbleSort(arr) {
+//         for(let i = 0; i < arr.length; i++){
+//             for(let j = 0; j < arr.length; j++){
+//                 if(arr[j] > arr[j+1]){
+//                     let temp = arr[j];
+//                     arr[j] = arr[j+1];
+//                     arr[j+1] = temp
+//                 }
+//             }
+//         }
+//         return arr
+//     }
 
 
 
+function removeAllBoxes(){
+        while(container.firstChild){
+            container.removeChild(container.firstChild)
+        }
+}
+
+function createBoxes(array){
+    for(let i = 0; i < array.length; i++){
+        let box = document.createElement("div")
+        box.classList.add("box")
+        box.innerText = array[i]
+        box.style.height = `${array[i]}px`
+        container.append(box)
+      }
+}
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
-
 
 
 function generateRandomizedArray(length){
