@@ -6,6 +6,7 @@ let speedSlider = document.querySelector(".speed-slider")
 let container = document.querySelector(".container")
 let bubbleSortBtn = document.querySelector(".bubble-sort-btn")
 let selectionSortBtn = document.querySelector(".selection-sort-btn")
+let insertionSortBtn = document.querySelector(".insertion-sort-btn")
 let stopIntervalExecution = false
 
 // output.innerHTML = slider.value;
@@ -40,6 +41,11 @@ slider.addEventListener('input', function(){
     
     let input = slider.value
     let array = generateRandomizedArray(input)
+     
+    // console.log(array)
+    // console.log(insertionSort(array))
+
+
     createBoxes(array)
 })
 
@@ -60,16 +66,21 @@ bubbleSortBtn.addEventListener("click", function(){
 
     let myfunc = setInterval(function(){
 
+        // removeAllBoxes()
+
+        // createHtmlCollec(box)
+
         // box[j].style.left = `0px`
         // box[j+1].style.left = `0px`
 
         while( i < currentBoxLength){
-            console.log("outer = ",i)
+            // console.log("outer = ",i)
            
                
             while( j < box.length - iteration ){
     
-                console.log("inner = ",j)
+                // console.log("inner = ",j)
+              
     
                 if(j != 0 ){
                     box[j-1].style.backgroundColor = 'azure'
@@ -81,6 +92,10 @@ bubbleSortBtn.addEventListener("click", function(){
                
                 if(parseInt(box[j].innerText) > parseInt(box[j+1].innerText)){
 
+                    // console.log(`before switch ${box}`)
+                    // box[j].style.transform = `translateX(${box[j+1].getBoundingClientRect().left - box[j].getBoundingClientRect().left }px)`
+                    // box[j+1].style.transform = `translateX(${box[j].getBoundingClientRect().left - box[j+1].getBoundingClientRect().left }px)`
+
 
                     let temp = box[j].innerText
 
@@ -89,8 +104,7 @@ bubbleSortBtn.addEventListener("click", function(){
                     // box[j].style.left = `${box[j+1].getBoundingClientRect().left - box[j].getBoundingClientRect().left }px`
                     // box[j+1].style.left = `${box[j].getBoundingClientRect().left - box[j+1].getBoundingClientRect().left }px`
 
-                    // box[j].style.transform = `translateX(${box[j+1].getBoundingClientRect().left - box[j].getBoundingClientRect().left }px)`
-                    // box[j+1].style.transform = `translateX(${box[j].getBoundingClientRect().left - box[j+1].getBoundingClientRect().left }px)`
+             
 
 
 
@@ -98,6 +112,7 @@ bubbleSortBtn.addEventListener("click", function(){
                     // box[j] = box[j].nextSibling
                     // box[j].nextSibling = temp
 
+                    // console.log(`after switch ${box}`)
 
 
 
@@ -186,8 +201,6 @@ selectionSortBtn.addEventListener("click", function(){
 
                 break;
             }
-
-          
             i++
             break;
     }
@@ -201,6 +214,99 @@ selectionSortBtn.addEventListener("click", function(){
     
     },speedSlider.value)
 })
+
+function insertionSort(arr){
+
+    for(var i = 1; i < arr.length; i++){
+    let currentVal = arr[i]
+
+      for(var j = i - 1; j >= 0 && arr[j] > currentVal; j--){
+        arr[j+1] = arr[j]
+        console.log("in insertion")
+      }
+
+      arr[j+1] = currentVal
+
+    }
+
+    return arr
+
+}
+
+[70, 81, 90, 100]
+
+
+
+insertionSortBtn.addEventListener("click", function(){
+
+    let box = document.querySelectorAll(".box")
+    let currentBoxLength =  box.length * ( box.length / 2 )
+    stopIntervalExecution = false
+    let iteration = 1
+    let i = 0
+    let j = iteration - 1
+    let currentVal = parseInt(box[iteration].innerText)
+    let hasNotEntered = true
+   
+
+    let myfunc = setInterval(function(){
+
+        while( i < currentBoxLength ){
+
+            hasNotEntered = true
+          
+            while(j >= 0 && parseInt(box[j].innerText) > currentVal){
+
+                hasNotEntered = false
+
+                box[j+1].innerText = box[j].innerText
+
+                j--
+                
+                if(j < 0) {
+                
+                    if(iteration < box.length - 1  ){
+                       iteration++
+                    }
+
+                    box[j+1].innerText = currentVal
+                    box[j+1].style.height =   `${box[j+1].innerText}px`
+                    currentVal = parseInt(box[iteration].innerText)
+                    j = iteration - 1
+                } 
+              
+                break;
+
+            }
+
+             if(hasNotEntered) {
+
+                if(iteration < box.length - 1 ) {
+                    iteration++
+                }
+
+                box[j+1].innerText = currentVal
+                box[j+1].style.height =   `${box[j+1].innerText}px`
+                currentVal = parseInt(box[iteration].innerText)
+                j = iteration - 1
+             }
+               
+            i++
+            break;
+    }
+
+    if(i === currentBoxLength || stopIntervalExecution){
+        clearInterval(myfunc)
+    }
+    
+    },speedSlider.value)
+
+})
+
+
+
+
+
 
 
 /*
@@ -306,6 +412,18 @@ function createBoxes(array){
         container.append(box)
       }
 }
+
+function createHtmlCollec(array){
+    for(let i = 0; i < array.length; i++){
+        let box = document.createElement("div")
+        box.classList.add("box")
+        box.innerText = array[i].innerText
+        box.style.height = `${array[i].innerText}px`
+        container.append(box)
+      }
+}
+
+
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
