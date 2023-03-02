@@ -5,9 +5,9 @@ let tutorialNextBtn = document.querySelector(".next-btn")
 let tutorialPreviousBtn = document.querySelector(".previous-btn")
 let tutorialPageCounter = 0
 
-const tutorial = [
+const tutorialInfo = [
     {
-        title: "Welcome to Sorting algorithm visualizer!",
+        title: "Welcome to Sorting Algorithm Visualizer!",
         secondaryTitle: "Short Tutorial",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
         image: "connection.png" 
@@ -37,20 +37,22 @@ const tutorial = [
 
 
 tutorialNextBtn.addEventListener("click", function(){
+    // console.log("INSIDE NEXT ")
+    
     // length = 4
     // length - 1 = 3
     //0
     // 1
     //2
     // 3
-    if(tutorialPageCounter < tutorial.length - 1){ 
+    if(tutorialPageCounter < tutorialInfo.length - 1){ 
     tutorialPageCounter++
     }
 
 
-    tutorialTitle.innerText = tutorial[tutorialPageCounter].title
-    tutorialSecTitle.innerText = tutorial[tutorialPageCounter].secondaryTitle
-    tutorialDescription.innerText = tutorial[tutorialPageCounter].description
+    tutorialTitle.innerText = tutorialInfo[tutorialPageCounter].title
+    tutorialSecTitle.innerText = tutorialInfo[tutorialPageCounter].secondaryTitle
+    tutorialDescription.innerText = tutorialInfo[tutorialPageCounter].description
 
 }
 
@@ -66,9 +68,9 @@ tutorialPreviousBtn.addEventListener("click", function(){
         }
 
 
-    tutorialTitle.innerText = tutorial[tutorialPageCounter].title
-    tutorialSecTitle.innerText = tutorial[tutorialPageCounter].secondaryTitle
-    tutorialDescription.innerText = tutorial[tutorialPageCounter].description
+    tutorialTitle.innerText = tutorialInfo[tutorialPageCounter].title
+    tutorialSecTitle.innerText = tutorialInfo[tutorialPageCounter].secondaryTitle
+    tutorialDescription.innerText = tutorialInfo[tutorialPageCounter].description
 
 
 
@@ -82,7 +84,7 @@ tutorialPreviousBtn.addEventListener("click", function(){
 
 
 let overlay = document.querySelector(".overlay")
-let introModal = document.querySelector(".intro-modal")
+let tutorial = document.querySelector(".tutorial")
 let closeIntroBtn = document.querySelector(".intro-close-btn")
 var slider = document.getElementById("range-slider__range");
 var output = document.getElementById("range-slider__value");
@@ -97,7 +99,7 @@ let heightMultiplier = 5
 let stopIntervalExecution = false
 
 closeIntroBtn.addEventListener("click", function(){
-    introModal.classList.add("close-intro")
+    tutorial.classList.add("close-intro")
     overlay.classList.add("close-intro")
 })
 
