@@ -3,7 +3,11 @@ let tutorialSecTitle = document.querySelector(".tutorial-sec-title")
 let tutorialDescription = document.querySelector(".tutorial-description")
 let tutorialNextBtn = document.querySelector(".next-btn")
 let tutorialPreviousBtn = document.querySelector(".previous-btn")
+let countDisplay = document.querySelector(".page-count")
+let PageCounter = 1
+
 let tutorialPageCounter = 0
+countDisplay.innerText = `${PageCounter}/4`
 
 const tutorialInfo = [
     {
@@ -37,7 +41,7 @@ const tutorialInfo = [
 
 
 tutorialNextBtn.addEventListener("click", function(){
-    // console.log("INSIDE NEXT ")
+   
     
     // length = 4
     // length - 1 = 3
@@ -45,9 +49,16 @@ tutorialNextBtn.addEventListener("click", function(){
     // 1
     //2
     // 3
+   
     if(tutorialPageCounter < tutorialInfo.length - 1){ 
+    PageCounter++
     tutorialPageCounter++
+    countDisplay.innerText = `${PageCounter}/4`
     }
+
+    
+
+   
 
 
     tutorialTitle.innerText = tutorialInfo[tutorialPageCounter].title
@@ -61,11 +72,16 @@ tutorialNextBtn.addEventListener("click", function(){
 
 tutorialPreviousBtn.addEventListener("click", function(){
 
-
+    
    
     if(tutorialPageCounter > 0 ){
+        PageCounter--
         tutorialPageCounter--
+        countDisplay.innerText = `${PageCounter}/4`
+        
         }
+
+      
 
 
     tutorialTitle.innerText = tutorialInfo[tutorialPageCounter].title

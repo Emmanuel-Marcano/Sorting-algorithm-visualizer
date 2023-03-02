@@ -1,3 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&family=Roboto:wght@900&display=swap');
+
+
 *{
     box-sizing: border-box;
 }
@@ -12,7 +19,8 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: sans-serif;
+    font-family: 'lato', sans-serif;
+    color: #02203C;
 }
 
 .tutorial{
@@ -26,8 +34,25 @@ body{
   border: 1px solid black;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   z-index: 2;
-  padding: 0px 20px;
-  padding-bottom: 21px;
+  padding: 20px;
+  padding-top: 15px;
+  /* padding-bottom: 21px; */
+}
+
+.page-count{
+  position: absolute;
+  width: max-content;
+  right:20px;
+  display: inline;
+  margin-left: auto;
+  
+}
+
+.text-muted{
+
+  color: 	#6c757d;
+
+
 }
 
 .intro-description{
@@ -52,15 +77,15 @@ body{
 .previous-next{
   position: absolute;
   width: max-content;
-  right:10px;
+  right:20px;
   display: inline;
   margin-left: auto;
   
 }
 
-.intro-img{
-  width: 200px;
-  height: 200px;
+.tutorial-img{
+  width: 150px;
+  height: 150px;
   display: block;
   margin: 0 auto;
 }
