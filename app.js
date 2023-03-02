@@ -1,4 +1,89 @@
+let tutorialTitle = document.querySelector(".tutorial-title")
+let tutorialSecTitle = document.querySelector(".tutorial-sec-title")
+let tutorialDescription = document.querySelector(".tutorial-description")
+let tutorialNextBtn = document.querySelector(".next-btn")
+let tutorialPreviousBtn = document.querySelector(".previous-btn")
+let tutorialPageCounter = 0
 
+const tutorial = [
+    {
+        title: "Welcome to Sorting algorithm visualizer!",
+        secondaryTitle: "Short Tutorial",
+        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        image: "connection.png" 
+    },
+    {
+        title: "Bubble Sort",
+        secondaryTitle: "Short Tutorial",
+        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        image: "connection.png" 
+    },
+    {
+        title: "Selection Sort",
+        secondaryTitle: "Short Tutorial",
+        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        image: "connection.png" 
+    },
+    {
+        title: "Insertion Sort",
+        secondaryTitle: "Short Tutorial",
+        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        image: "connection.png" 
+    }
+]
+
+
+
+
+
+tutorialNextBtn.addEventListener("click", function(){
+    // length = 4
+    // length - 1 = 3
+    //0
+    // 1
+    //2
+    // 3
+    if(tutorialPageCounter < tutorial.length - 1){ 
+    tutorialPageCounter++
+    }
+
+
+    tutorialTitle.innerText = tutorial[tutorialPageCounter].title
+    tutorialSecTitle.innerText = tutorial[tutorialPageCounter].secondaryTitle
+    tutorialDescription.innerText = tutorial[tutorialPageCounter].description
+
+}
+
+
+)
+
+tutorialPreviousBtn.addEventListener("click", function(){
+
+
+   
+    if(tutorialPageCounter > 0 ){
+        tutorialPageCounter--
+        }
+
+
+    tutorialTitle.innerText = tutorial[tutorialPageCounter].title
+    tutorialSecTitle.innerText = tutorial[tutorialPageCounter].secondaryTitle
+    tutorialDescription.innerText = tutorial[tutorialPageCounter].description
+
+
+
+
+})
+
+
+
+
+
+
+
+let overlay = document.querySelector(".overlay")
+let introModal = document.querySelector(".intro-modal")
+let closeIntroBtn = document.querySelector(".intro-close-btn")
 var slider = document.getElementById("range-slider__range");
 var output = document.getElementById("range-slider__value");
 let speedSliderOutput = document.querySelector(".speed-slider-value")
@@ -10,6 +95,11 @@ let insertionSortBtn = document.querySelector(".insertion-sort-btn")
 let arrow = document.querySelector(".arrow")
 let heightMultiplier = 5
 let stopIntervalExecution = false
+
+closeIntroBtn.addEventListener("click", function(){
+    introModal.classList.add("close-intro")
+    overlay.classList.add("close-intro")
+})
 
 // output.innerHTML = slider.value;
 
@@ -177,9 +267,14 @@ selectionSortBtn.addEventListener("click", function(){
             while( j < box.length ){
 
                 console.log("inner j = ",j)
+               
 
                 if(parseInt(box[j].innerText) < parseInt(box[lowest].innerText)){
+                    let previousLowest = lowest
+                     box[previousLowest].style.backgroundColor = 'azure'
                     lowest = j
+                    box[lowest].style.backgroundColor = '#a18cd1'
+                    
                 }
              
                 j++
@@ -187,6 +282,7 @@ selectionSortBtn.addEventListener("click", function(){
                 if(j === box.length) {
 
                     console.log(`lowest found = ${box[lowest].innerText}`)
+                    box[lowest].style.backgroundColor = 'azure'
 
                     let temp = box[iteration].innerText
                     box[iteration].innerText = box[lowest].innerText
@@ -274,7 +370,7 @@ insertionSortBtn.addEventListener("click", function(){
                 box[j+1].style.height =   `${parseInt(box[j+1].innerText)*heightMultiplier}px` 
                 box[j+1].style.backgroundColor = '#2EE59D'
                 box[j].style.backgroundColor = '#2EE59D'
-                box[iteration].style.backgroundColor = 'red'
+                box[iteration].style.backgroundColor = '#a18cd1'
 
 
                 arrow.style.transform = `translateX(${box[j].getBoundingClientRect().left}px)`

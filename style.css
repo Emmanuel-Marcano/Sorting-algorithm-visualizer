@@ -5,12 +5,95 @@
 
 body{
     margin: 0;
-    height: 100vh;
+    height: 100svh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: sans-serif;
+}
+
+.intro-modal{
+  position: absolute;
+  width: 90%;
+  max-width: 800px;
+  /* inset: 8rem; */
+  /* width: max-content; */
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid black;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  z-index: 2;
+  padding: 25px;
+}
+
+.intro-description{
+  text-align: center;
+
+}
+
+.tutorial-btns{
+  bottom: 0;
+}
+
+.tutorial-btn{
+  background-color: #2EE59D;
+  padding: 8px 15px;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 3px;
+  
+
+}
+
+.previous-next{
+  position: absolute;
+  width: max-content;
+  right:10px;
+  display: inline;
+  margin-left: auto;
+  
+}
+
+.intro-img{
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.overlay {
+  position: absolute; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+  /* background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); */
+}
+
+.intro-close-btn{
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+  
+  cursor: pointer;
+}
+
+.next-btn{
+  
+}
+
+/* .intro-close-btn:hover .intro-modal{
+  display: none;
+  
+} */
+
+.close-intro{
+  display: none;
 }
 
 .logo{
