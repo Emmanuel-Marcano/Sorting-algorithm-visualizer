@@ -3,10 +3,12 @@ var slider = document.getElementById("range-slider__range");
 var output = document.getElementById("range-slider__value");
 let speedSliderOutput = document.querySelector(".speed-slider-value")
 let speedSlider = document.querySelector(".speed-slider")
-let container = document.querySelector(".container")
+let boxContainer = document.querySelector(".boxContainer")
 let bubbleSortBtn = document.querySelector(".bubble-sort-btn")
 let selectionSortBtn = document.querySelector(".selection-sort-btn")
 let insertionSortBtn = document.querySelector(".insertion-sort-btn")
+let arrow = document.querySelector(".arrow")
+let heightMultiplier = 5
 let stopIntervalExecution = false
 
 // output.innerHTML = slider.value;
@@ -29,7 +31,9 @@ speedSlider.oninput = function() {
 
 slider.addEventListener('input', function(){
 
-    if(container.firstChild){
+    arrow.classList.remove("show")
+
+    if(boxContainer.firstChild){
         removeAllBoxes()
     }
     
@@ -119,8 +123,8 @@ bubbleSortBtn.addEventListener("click", function(){
 
                     box[j].innerText = box[j+1].innerText
                     box[j+1].innerText = temp
-                    box[j].style.height = `${box[j].innerText}px`
-                    box[j+1].style.height = `${box[j+1].innerText}px`
+                    box[j].style.height = `${parseInt(box[j].innerText) *heightMultiplier}px`
+                    box[j+1].style.height = `${parseInt(box[j+1].innerText)*heightMultiplier}px`
                     box[j].style.backgroundColor = 'red'
                 }
     
@@ -187,8 +191,8 @@ selectionSortBtn.addEventListener("click", function(){
                     let temp = box[iteration].innerText
                     box[iteration].innerText = box[lowest].innerText
                     box[lowest].innerText = temp
-                    box[iteration].style.height = `${box[iteration].innerText}px`
-                    box[lowest].style.height = `${box[lowest].innerText}px`
+                    box[iteration].style.height = `${parseInt(box[iteration].innerText)*heightMultiplier}px`
+                    box[lowest].style.height = `${parseInt(box[lowest].innerText)*heightMultiplier}px`
                     
                     
                     box[iteration].style.backgroundColor = '#2EE59D'
@@ -238,6 +242,8 @@ function insertionSort(arr){
 
 
 insertionSortBtn.addEventListener("click", function(){
+    arrow.classList.add("show")
+    
 
     let box = document.querySelectorAll(".box")
     let currentBoxLength =  box.length * ( box.length / 2 )
@@ -251,26 +257,42 @@ insertionSortBtn.addEventListener("click", function(){
 
     let myfunc = setInterval(function(){
 
+        arrow.classList.remove("found")
+
         while( i < currentBoxLength ){
 
             hasNotEntered = true
+
+            // box[j+1].style.backgroundColor = 'azure'
+            // box[j].style.backgroundColor = 'azure'
           
             while(j >= 0 && parseInt(box[j].innerText) > currentVal){
 
                 hasNotEntered = false
 
                 box[j+1].innerText = box[j].innerText
+                box[j+1].style.height =   `${parseInt(box[j+1].innerText)*heightMultiplier}px` 
+                box[j+1].style.backgroundColor = '#2EE59D'
+                box[j].style.backgroundColor = '#2EE59D'
+                box[iteration].style.backgroundColor = 'red'
+
+
+                arrow.style.transform = `translateX(${box[j].getBoundingClientRect().left}px)`
+                // arrow.style.transform = `translateY(${box[j].getBoundingClientRect().top}px)`
+                arrow.innerText = currentVal
 
                 j--
                 
                 if(j < 0) {
+                    box[iteration].style.backgroundColor = 'azure'
                 
                     if(iteration < box.length - 1  ){
                        iteration++
                     }
 
                     box[j+1].innerText = currentVal
-                    box[j+1].style.height =   `${box[j+1].innerText}px`
+                    arrow.classList.add("found")
+                    box[j+1].style.height =   `${parseInt(box[j+1].innerText)*heightMultiplier}px`
                     currentVal = parseInt(box[iteration].innerText)
                     j = iteration - 1
                 } 
@@ -280,13 +302,15 @@ insertionSortBtn.addEventListener("click", function(){
             }
 
              if(hasNotEntered) {
+                box[iteration].style.backgroundColor = 'azure'
 
                 if(iteration < box.length - 1 ) {
                     iteration++
                 }
 
                 box[j+1].innerText = currentVal
-                box[j+1].style.height =   `${box[j+1].innerText}px`
+                arrow.classList.add("found")
+                box[j+1].style.height =   `${parseInt(box[j+1].innerText)*heightMultiplier}px`
                 currentVal = parseInt(box[iteration].innerText)
                 j = iteration - 1
              }
@@ -398,8 +422,8 @@ function selectionSort(arr){
 
 
 function removeAllBoxes(){
-        while(container.firstChild){
-            container.removeChild(container.firstChild)
+        while(boxContainer.firstChild){
+            boxContainer.removeChild(boxContainer.firstChild)
         }
 }
 
@@ -408,20 +432,20 @@ function createBoxes(array){
         let box = document.createElement("div")
         box.classList.add("box")
         box.innerText = array[i]
-        box.style.height = `${array[i]}px`
-        container.append(box)
+        box.style.height = `${parseInt(array[i]) * heightMultiplier}px`
+        boxContainer.append(box)
       }
 }
 
-function createHtmlCollec(array){
-    for(let i = 0; i < array.length; i++){
-        let box = document.createElement("div")
-        box.classList.add("box")
-        box.innerText = array[i].innerText
-        box.style.height = `${array[i].innerText}px`
-        container.append(box)
-      }
-}
+// function createHtmlCollec(array){
+//     for(let i = 0; i < array.length; i++){
+//         let box = document.createElement("div")
+//         box.classList.add("box")
+//         box.innerText = array[i].innerText
+//         box.style.height = `${parseInt(array[i].innerText) * 4}px`
+//         boxContainer.append(box)
+//       }
+// }
 
 
 
