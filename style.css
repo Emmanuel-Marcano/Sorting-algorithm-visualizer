@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&family=Roboto:wght@900&display=swap');
 
 
-*{
+* {
     box-sizing: border-box;
 }
 html, body{
@@ -27,8 +27,6 @@ body{
   position: absolute;
   width: 95%;
   max-width: 800px;
-  /* inset: 8rem; */
-  /* width: max-content; */
   background-color: white;
   border-radius: 3px;
   border: 1px solid black;
@@ -36,7 +34,6 @@ body{
   z-index: 2;
   padding: 20px;
   padding-top: 15px;
-  /* padding-bottom: 21px; */
 }
 
 .page-count{
@@ -45,19 +42,21 @@ body{
   right:20px;
   display: inline;
   margin-left: auto;
-  
 }
 
 .text-muted{
-
   color: 	#6c757d;
-
-
 }
 
 .intro-description{
   text-align: center;
 
+}
+
+.grid-columns{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
 }
 
 .tutorial-btns{
@@ -70,8 +69,8 @@ body{
   border: 1px solid black;
   cursor: pointer;
   border-radius: 3px;
-  
-
+  /* color: #f6f9fc; */
+  font-weight: 600;
 }
 
 .previous-next{
@@ -80,12 +79,11 @@ body{
   right:20px;
   display: inline;
   margin-left: auto;
-  
 }
 
 .tutorial-img{
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   display: block;
   margin: 0 auto;
 }
@@ -107,7 +105,6 @@ body{
   right: 0;
   bottom: 0;
   left:0;
-  
   cursor: pointer;
 }
 
@@ -115,10 +112,6 @@ body{
   
 }
 
-/* .intro-close-btn:hover .intro-modal{
-  display: none;
-  
-} */
 
 .close-intro{
   display: none;
@@ -167,18 +160,13 @@ footer{
 }
 
 .box{
-    /* display: flex;
-    justify-content: center;
-    align-items: flex-end; */
     position: relative;
     top: 0px;
     left: 0px;
     bottom: 0px;
     right: 0px;
     width: 20px;
-    /* padding: 0 5px; */
     background-color: azure;
-    /* width: 30px; */
     border: 1px solid black;
     padding-bottom: 20px;
     transition: height 0.1s ease, background-color 0.5s ease, left 1s ease, transform 1s ease;
@@ -189,7 +177,6 @@ footer{
 .box-3{
     height: 200px;
 }
-
 
 .array-btn{
     cursor: pointer;
@@ -210,9 +197,6 @@ footer{
   transition: transform 0.3s ease;
   opacity: 0;
   border-radius: 3px;
-  
-  
-
 }
 
 .show{
@@ -241,11 +225,8 @@ footer{
 }
 
 .button {
-    /* width: 90px;
-    height: 35px; */
     padding: 10px 20px;
     margin: 10px;
-    
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
@@ -258,7 +239,7 @@ footer{
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-    }
+  }
   
   .button:hover {
     background-color: #2EE59D;
@@ -270,8 +251,6 @@ footer{
   .button:active{
     transform: translateY(5px);
   }
-
-
 
 /*Range style*/
 #range-slider__range {

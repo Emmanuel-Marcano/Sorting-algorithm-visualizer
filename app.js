@@ -1,37 +1,65 @@
 let tutorialTitle = document.querySelector(".tutorial-title")
 let tutorialSecTitle = document.querySelector(".tutorial-sec-title")
 let tutorialDescription = document.querySelector(".tutorial-description")
+let tutorialDescription2 = document.querySelector(".tutorial-description-2")
+let descriptionColumns = document.querySelector(".desc-columns")
+let tutorialH31 = document.querySelector(".tutorial-h3")
+let tutorialH32 = document.querySelector(".tutorial-h3-2")
+
+
+
+let tutorialTimeComplex = document.querySelector(".time-complex")
 let tutorialNextBtn = document.querySelector(".next-btn")
 let tutorialPreviousBtn = document.querySelector(".previous-btn")
 let countDisplay = document.querySelector(".page-count")
 let PageCounter = 1
+let numberOfPages = 5
 
 let tutorialPageCounter = 0
-countDisplay.innerText = `${PageCounter}/4`
+countDisplay.innerText = `${PageCounter}/${numberOfPages}`
 
 const tutorialInfo = [
     {
         title: "Welcome to Sorting Algorithm Visualizer!",
+        secondaryTitle: "Desktop First",
+        timeComplexity: "I made this app to be primarily a desktop experience. If you are currently on mobile, feel free to try it out but the user experience might not be as good. If you own a personal computer i'd recommend to try it out there!",
+        tutorialH31: "Enjoy!",
+        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.' ,
+        tutorialH32: "Tutorial",
+        description2: 'Next stop is a short tutorial. If you want to dive right in, press the "Skip Tutorial" button below. Otherwise press "Next" to continue with the tutorial.',
+        image: "connection.png"
+    },
+    {
+        title: "Welcome to Sorting Algorithm Visualizer!",
         secondaryTitle: "Short Tutorial",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
-        image: "connection.png" 
+        timeComplexity: "This tutorial will quickly walk you through the features of this algorithm visualizer and briefly give you an overview of the included algorithms.",
+        tutorialH31: "The Big 3",
+        description: "The sorting algorithm visualizer includes the 3 elemental sorting algorithms. They are commonly used and thrive at sorting lists that don't have too many elements. I will be explaining why soon. ",
+        tutorialH32: "Set Up",
+        description2: "To start, first select the amount of elements you want in the array by using the range input slider on the bottom left of the screen. Once you have selected an amount, you can select the speed at which you want the array to get sorted at with the bottom right slider. Finally, you can select which algorithm you want to run on the array with the buttons at the top of the screen.",
+        image: "" 
     },
     {
         title: "Bubble Sort",
-        secondaryTitle: "Short Tutorial",
+        secondaryTitle: "Time Complexity",
+        timeComplexity: "O/N2",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
         image: "connection.png" 
     },
     {
         title: "Selection Sort",
-        secondaryTitle: "Short Tutorial",
+        secondaryTitle: "Time Complexity",
+        timeComplexity: "O/N2",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        description2: "",
         image: "connection.png" 
     },
     {
         title: "Insertion Sort",
-        secondaryTitle: "Short Tutorial",
+        secondaryTitle: "Time Complexity",
+        timeComplexity: "O/N2",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        description2: "",
         image: "connection.png" 
     }
 ]
@@ -53,8 +81,14 @@ tutorialNextBtn.addEventListener("click", function(){
     if(tutorialPageCounter < tutorialInfo.length - 1){ 
     PageCounter++
     tutorialPageCounter++
-    countDisplay.innerText = `${PageCounter}/4`
+    countDisplay.innerText = `${PageCounter}/${numberOfPages}`
     }
+
+    // if(tutorialPageCounter === 1){
+    //     descriptionColumns.classList.add("grid-columns")
+
+
+    // }
 
     
 
@@ -63,7 +97,11 @@ tutorialNextBtn.addEventListener("click", function(){
 
     tutorialTitle.innerText = tutorialInfo[tutorialPageCounter].title
     tutorialSecTitle.innerText = tutorialInfo[tutorialPageCounter].secondaryTitle
+    tutorialTimeComplex.innerText = tutorialInfo[tutorialPageCounter].timeComplexity
+    tutorialH31.innerText = tutorialInfo[tutorialPageCounter].tutorialH31
     tutorialDescription.innerText = tutorialInfo[tutorialPageCounter].description
+    tutorialH32.innerText = tutorialInfo[tutorialPageCounter].tutorialH32
+    tutorialDescription2.innerText = tutorialInfo[tutorialPageCounter].description2
 
 }
 
@@ -77,7 +115,7 @@ tutorialPreviousBtn.addEventListener("click", function(){
     if(tutorialPageCounter > 0 ){
         PageCounter--
         tutorialPageCounter--
-        countDisplay.innerText = `${PageCounter}/4`
+        countDisplay.innerText = `${PageCounter}/${numberOfPages}`
         
         }
 
@@ -86,7 +124,11 @@ tutorialPreviousBtn.addEventListener("click", function(){
 
     tutorialTitle.innerText = tutorialInfo[tutorialPageCounter].title
     tutorialSecTitle.innerText = tutorialInfo[tutorialPageCounter].secondaryTitle
+    tutorialTimeComplex.innerText = tutorialInfo[tutorialPageCounter].timeComplexity
+    tutorialH31.innerText = tutorialInfo[tutorialPageCounter].tutorialH31
     tutorialDescription.innerText = tutorialInfo[tutorialPageCounter].description
+    tutorialH32.innerText = tutorialInfo[tutorialPageCounter].tutorialH32
+    tutorialDescription2.innerText = tutorialInfo[tutorialPageCounter].description2
 
 
 
