@@ -1,3 +1,12 @@
+/********************* Tutorial Section & Algorithm logo ellipses **********************/
+
+let ellipse1 = document.getElementById('ellipse-1')
+let ellipse2 = document.getElementById('ellipse-2')
+let ellipse3 = document.getElementById('ellipse-3')
+let ellipse4 = document.getElementById('ellipse-4')
+let ellipse5 = document.getElementById('ellipse-5')
+let ellipse6 = document.getElementById('ellipse-6')
+let ellipse7 = document.getElementById('ellipse-7')
 let tutorialTitle = document.querySelector(".tutorial-title")
 let tutorialSecTitle = document.querySelector(".tutorial-sec-title")
 let tutorialDescription = document.querySelector(".tutorial-description")
@@ -5,78 +14,118 @@ let tutorialDescription2 = document.querySelector(".tutorial-description-2")
 let descriptionColumns = document.querySelector(".desc-columns")
 let tutorialH31 = document.querySelector(".tutorial-h3")
 let tutorialH32 = document.querySelector(".tutorial-h3-2")
-
-
-
 let tutorialTimeComplex = document.querySelector(".time-complex")
 let tutorialNextBtn = document.querySelector(".next-btn")
 let tutorialPreviousBtn = document.querySelector(".previous-btn")
 let countDisplay = document.querySelector(".page-count")
 let PageCounter = 1
-let numberOfPages = 5
-
+let numberOfPages = 8
 let tutorialPageCounter = 0
 countDisplay.innerText = `${PageCounter}/${numberOfPages}`
 
 const tutorialInfo = [
+
     {
         title: "Welcome to Sorting Algorithm Visualizer!",
         secondaryTitle: "Desktop First",
-        timeComplexity: "I made this app to be primarily a desktop experience. If you are currently on mobile, feel free to try it out but the user experience might not be as good. If you own a personal computer i'd recommend to try it out there!",
-        tutorialH31: "Enjoy!",
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.' ,
+        timeComplexity: "I made this app to be primarily a desktop experience. If you are currently on mobile, feel free to try it out but the user experience will not be as good. If you own a personal computer, i'd recommend to try it out there!",
+        tutorialH31: "Why use this?",
+        description: "If you are having trouble understanding sorting algorithms, try my app. You'll be able to visualize them every step of the way and create a mental model of how each of them work." ,
         tutorialH32: "Tutorial",
-        description2: 'Next stop is a short tutorial. If you want to dive right in, press the "Skip Tutorial" button below. Otherwise press "Next" to continue with the tutorial.',
+        description2: 'Next stop is a short tutorial. If you want to dive right in, press the "Skip Tutorial" button below. Otherwise, press "Next" to continue with the tutorial.',
         image: "connection.png"
     },
+
     {
         title: "Welcome to Sorting Algorithm Visualizer!",
         secondaryTitle: "Short Tutorial",
-        timeComplexity: "This tutorial will quickly walk you through the features of this algorithm visualizer and briefly give you an overview of the included algorithms.",
+        timeComplexity: "This tutorial will quickly walk you through the set up and features of the algorithm visualizer. It will also briefly give you an explanation of the included algorithms and how they work.",
         tutorialH31: "The Big 3",
         description: "The sorting algorithm visualizer includes the 3 elemental sorting algorithms. They are commonly used and thrive at sorting lists that don't have too many elements. I will be explaining why soon. ",
         tutorialH32: "Set Up",
-        description2: "To start, first select the amount of elements you want in the array by using the range input slider on the bottom left of the screen. Once you have selected an amount, you can select the speed at which you want the array to get sorted at with the bottom right slider. Finally, you can select which algorithm you want to run on the array with the buttons at the top of the screen.",
+        description2: "<ul><li><b>Select the amount</b> of elements you want in the array by using the range input slider at the bottom left of the screen</li><li><b>Select the speed</b> at which you want the array to get sorted with the bottom right slider</li><li><b>Select the algorithm</b> you want to run on the array with the buttons at the top of the screen</li></ul>",
         image: "" 
     },
+
+    {
+        title: "Big O Notation",
+        secondaryTitle: "What is it?",
+        timeComplexity: "In programming, there can be multiple ways to solve a problem. How can we know which solution is more appropiate to use? Luckily, there is a way to compare the performance of different algorithms using the Big O Notation. It does so by calculating the time taken to run an algorithm as the input grows in size.",
+        tutorialH31: "Time Complexity",
+        description: "The Big O is calculated by counting the number of operations the computer has to perform to run an algorithm.",
+        tutorialH32: "Space Complexity",
+        description2: "Time is not the only factor taken into consideration when deciding which algorithm to apply to a problem. The amount of space used by it plays a key role as well. ",
+        image: "connection.png" 
+    },
+
     {
         title: "Bubble Sort",
         secondaryTitle: "Time Complexity",
-        timeComplexity: "O/N2",
+        timeComplexity: "O/N<sup>2</sup>",
+        tutorialH31: "Description",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        tutorialH32: "Use Case",
+        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
         image: "connection.png" 
     },
+
     {
         title: "Selection Sort",
         secondaryTitle: "Time Complexity",
         timeComplexity: "O/N2",
+        tutorialH31: "Description",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
-        description2: "",
+        tutorialH32: "Use Case",
+        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
         image: "connection.png" 
     },
+
     {
         title: "Insertion Sort",
         secondaryTitle: "Time Complexity",
         timeComplexity: "O/N2",
+        tutorialH31: "Description",
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
-        description2: "",
+        tutorialH32: "Use Case",
+        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
+        image: "connection.png" 
+    },
+
+    {
+        title: "Insertion Sort",
+        secondaryTitle: "Time Complexity",
+        timeComplexity: "O/N2",
+        tutorialH31: "Description",
+        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        tutorialH32: "Use Case",
+        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
+        image: "connection.png" 
+    },
+
+    {
+        title: "Insertion Sort",
+        secondaryTitle: "Time Complexity",
+        timeComplexity: "O/N2",
+        tutorialH31: "Description",
+        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        tutorialH32: "Use Case",
+        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
+        image: "connection.png" 
+    },
+
+    {
+        title: "Insertion Sort",
+        secondaryTitle: "Time Complexity",
+        timeComplexity: "O/N2",
+        tutorialH31: "Description",
+        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        tutorialH32: "Use Case",
+        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
         image: "connection.png" 
     }
 ]
 
-
-
-
-
 tutorialNextBtn.addEventListener("click", function(){
-   
-    
-    // length = 4
-    // length - 1 = 3
-    //0
-    // 1
-    //2
-    // 3
    
     if(tutorialPageCounter < tutorialInfo.length - 1){ 
     PageCounter++
@@ -84,25 +133,42 @@ tutorialNextBtn.addEventListener("click", function(){
     countDisplay.innerText = `${PageCounter}/${numberOfPages}`
     }
 
-    // if(tutorialPageCounter === 1){
-    //     descriptionColumns.classList.add("grid-columns")
+    switch(tutorialPageCounter) {
+        case 0:
+            ellipse1.classList.add("fill")
+            break;
+        case 1:
+          ellipse1.classList.add("fill")
+          break;
+        case 2:
+            ellipse2.classList.add("fill")
+          break;
+        case 3:
+            ellipse3.classList.add("fill")
+          break;
+        case 4:
+            ellipse4.classList.add("fill")
+          break;
+        case 5:
+            ellipse5.classList.add("fill")
+          break;
+        case 6:
+            ellipse6.classList.add("fill")
+          break;
+        case 7:
+            ellipse7.classList.add("fill")
+          break;
 
-
-    // }
-
-    
-
-   
-
+        default:
+      }
 
     tutorialTitle.innerText = tutorialInfo[tutorialPageCounter].title
     tutorialSecTitle.innerText = tutorialInfo[tutorialPageCounter].secondaryTitle
-    tutorialTimeComplex.innerText = tutorialInfo[tutorialPageCounter].timeComplexity
+    tutorialTimeComplex.innerHTML = tutorialInfo[tutorialPageCounter].timeComplexity
     tutorialH31.innerText = tutorialInfo[tutorialPageCounter].tutorialH31
     tutorialDescription.innerText = tutorialInfo[tutorialPageCounter].description
     tutorialH32.innerText = tutorialInfo[tutorialPageCounter].tutorialH32
-    tutorialDescription2.innerText = tutorialInfo[tutorialPageCounter].description2
-
+    tutorialDescription2.innerHTML = tutorialInfo[tutorialPageCounter].description2
 }
 
 
@@ -110,35 +176,56 @@ tutorialNextBtn.addEventListener("click", function(){
 
 tutorialPreviousBtn.addEventListener("click", function(){
 
+    switch(tutorialPageCounter) {
+       
+        case 1:
+          ellipse1.classList.remove("fill")
+        //   ellipse2.classList.remove("fill")
+          break;
+        case 2:
+            ellipse2.classList.remove("fill")
+            // ellipse3.classList.remove("fill")
+          break;
+        case 3:
+            ellipse3.classList.remove("fill")
+            // ellipse4.classList.remove("fill")
+          break;
+        case 4:
+            ellipse4.classList.remove("fill")
+            // ellipse5.classList.remove("fill")
+          break;
+        case 5:
+            ellipse5.classList.remove("fill")
+            // ellipse6.classList.remove("fill")
+          break;
+        case 6:
+            ellipse6.classList.remove("fill")
+            // ellipse7.classList.remove("fill")
+        case 7:
+
+            ellipse7.classList.remove("fill")
+          break;
+
+        default:
+    }
+
     
    
     if(tutorialPageCounter > 0 ){
         PageCounter--
         tutorialPageCounter--
-        countDisplay.innerText = `${PageCounter}/${numberOfPages}`
-        
-        }
-
-      
+        countDisplay.innerText = `${PageCounter}/${numberOfPages}` 
+    }
 
 
     tutorialTitle.innerText = tutorialInfo[tutorialPageCounter].title
     tutorialSecTitle.innerText = tutorialInfo[tutorialPageCounter].secondaryTitle
-    tutorialTimeComplex.innerText = tutorialInfo[tutorialPageCounter].timeComplexity
+    tutorialTimeComplex.innerHTML = tutorialInfo[tutorialPageCounter].timeComplexity
     tutorialH31.innerText = tutorialInfo[tutorialPageCounter].tutorialH31
     tutorialDescription.innerText = tutorialInfo[tutorialPageCounter].description
     tutorialH32.innerText = tutorialInfo[tutorialPageCounter].tutorialH32
-    tutorialDescription2.innerText = tutorialInfo[tutorialPageCounter].description2
-
-
-
-
+    tutorialDescription2.innerHTML = tutorialInfo[tutorialPageCounter].description2
 })
-
-
-
-
-
 
 
 let overlay = document.querySelector(".overlay")
@@ -175,7 +262,6 @@ speedSlider.oninput = function() {
   speedSliderOutput.innerHTML = `${this.value}ms`;
   var value = (this.value-this.min)/(this.max-this.min)*100;
   this.style.background = 'linear-gradient(to right, #82CFD0 0%, #82CFD0 ' + value + '%, #d7dcdf ' + value + '%, #d7dcdf 100%)'
-
 }
 
 
@@ -195,11 +281,6 @@ slider.addEventListener('input', function(){
     
     let input = slider.value
     let array = generateRandomizedArray(input)
-     
-    // console.log(array)
-    // console.log(insertionSort(array))
-
-
     createBoxes(array)
 })
 
@@ -220,21 +301,10 @@ bubbleSortBtn.addEventListener("click", function(){
 
     let myfunc = setInterval(function(){
 
-        // removeAllBoxes()
-
-        // createHtmlCollec(box)
-
-        // box[j].style.left = `0px`
-        // box[j+1].style.left = `0px`
 
         while( i < currentBoxLength){
-            // console.log("outer = ",i)
            
-               
             while( j < box.length - iteration ){
-    
-                // console.log("inner = ",j)
-              
     
                 if(j != 0 ){
                     box[j-1].style.backgroundColor = 'azure'
@@ -243,34 +313,8 @@ bubbleSortBtn.addEventListener("click", function(){
                  box[j].style.backgroundColor = '#2EE59D'
                  box[j+1].style.backgroundColor = '#2EE59D'
                 
-               
                 if(parseInt(box[j].innerText) > parseInt(box[j+1].innerText)){
-
-                    // console.log(`before switch ${box}`)
-                    // box[j].style.transform = `translateX(${box[j+1].getBoundingClientRect().left - box[j].getBoundingClientRect().left }px)`
-                    // box[j+1].style.transform = `translateX(${box[j].getBoundingClientRect().left - box[j+1].getBoundingClientRect().left }px)`
-
-
                     let temp = box[j].innerText
-
-                   
-
-                    // box[j].style.left = `${box[j+1].getBoundingClientRect().left - box[j].getBoundingClientRect().left }px`
-                    // box[j+1].style.left = `${box[j].getBoundingClientRect().left - box[j+1].getBoundingClientRect().left }px`
-
-             
-
-
-
-                    // let temp = box[j] 
-                    // box[j] = box[j].nextSibling
-                    // box[j].nextSibling = temp
-
-                    // console.log(`after switch ${box}`)
-
-
-
-
                     box[j].innerText = box[j+1].innerText
                     box[j+1].innerText = temp
                     box[j].style.height = `${parseInt(box[j].innerText) *heightMultiplier}px`
@@ -279,13 +323,12 @@ bubbleSortBtn.addEventListener("click", function(){
                 }
     
                 j++
+
                 if(j == box.length - iteration ){
                     j = 0
                     iteration++
-
-
-
                 }
+
                 break;
             }
           
@@ -300,7 +343,6 @@ bubbleSortBtn.addEventListener("click", function(){
         clearInterval(myfunc)
     }
     
-
     },speedSlider.value)
 
 })
@@ -393,10 +435,6 @@ function insertionSort(arr){
 
 }
 
-[70, 81, 90, 100]
-
-
-
 insertionSortBtn.addEventListener("click", function(){
     arrow.classList.add("show")
     
@@ -419,9 +457,6 @@ insertionSortBtn.addEventListener("click", function(){
 
             hasNotEntered = true
 
-            // box[j+1].style.backgroundColor = 'azure'
-            // box[j].style.backgroundColor = 'azure'
-          
             while(j >= 0 && parseInt(box[j].innerText) > currentVal){
 
                 hasNotEntered = false
@@ -434,7 +469,6 @@ insertionSortBtn.addEventListener("click", function(){
 
 
                 arrow.style.transform = `translateX(${box[j].getBoundingClientRect().left}px)`
-                // arrow.style.transform = `translateY(${box[j].getBoundingClientRect().top}px)`
                 arrow.innerText = currentVal
 
                 j--

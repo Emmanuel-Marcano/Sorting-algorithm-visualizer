@@ -8,12 +8,12 @@
 * {
     box-sizing: border-box;
 }
-html, body{
+
+html, body {
   height: 100%;
 }
 
-
-body{
+body {
     margin: 0;
     display: flex;
     justify-content: center;
@@ -23,7 +23,11 @@ body{
     color: #02203C;
 }
 
-.tutorial{
+li {
+  margin: 15px 0px;
+}
+
+.tutorial {
   position: absolute;
   width: 95%;
   max-width: 800px;
@@ -36,7 +40,16 @@ body{
   padding-top: 15px;
 }
 
-.page-count{
+.ellipse-2 {
+  transition: 1s ease;
+  fill: #2C3E50;
+}
+
+.fill {
+  fill:#1abc9c;
+}
+
+.page-count {
   position: absolute;
   width: max-content;
   right:20px;
@@ -44,36 +57,35 @@ body{
   margin-left: auto;
 }
 
-.text-muted{
+.text-muted {
   color: 	#6c757d;
 }
 
-.intro-description{
+.intro-description {
   text-align: center;
 
 }
 
-.grid-columns{
+.grid-columns {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 30px;
 }
 
-.tutorial-btns{
+.tutorial-btns {
   bottom: 0;
 }
 
-.tutorial-btn{
+.tutorial-btn {
   background-color: #2EE59D;
   padding: 8px 15px;
   border: 1px solid black;
   cursor: pointer;
   border-radius: 3px;
-  /* color: #f6f9fc; */
   font-weight: 600;
 }
 
-.previous-next{
+.previous-next {
   position: absolute;
   width: max-content;
   right:20px;
@@ -81,9 +93,9 @@ body{
   margin-left: auto;
 }
 
-.tutorial-img{
-  width: 120px;
-  height: 120px;
+.tutorial-img {
+  width: 110px;
+  height: 110px;
   display: block;
   margin: 0 auto;
 }
@@ -100,7 +112,7 @@ body{
   /* background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); */
 }
 
-.intro-close-btn{
+.intro-close-btn {
   top: 0;
   right: 0;
   bottom: 0;
@@ -113,22 +125,22 @@ body{
 }
 
 
-.close-intro{
+.close-intro {
   display: none;
 }
 
-.logo{
+.logo {
     width: 40px;
     height: 40px;
 }
 
-.logo-area{
+.logo-area {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-header{
+header {
     padding: 30px 0;
     width: 100%;
     display: flex; 
@@ -137,20 +149,23 @@ header{
     background-color: azure;
 }
 
-.display{
+.display {
     width: 100%;
     flex-grow: 1;
     background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
     display: flex;
     justify-content: center;
+    -webkit-box-shadow: 0px -2px 3px rgba(178, 178, 178, 0.75);
+    -moz-box-shadow: 0px -2px 3px rgba(178, 178, 178, 0.75);
+    box-shadow: 0px -2px 3px rgba(178, 178, 178, 0.75);
 }
 
-.boxContainer{
+.boxContainer {
   display: flex;
   gap: 10px;
 }
 
-footer{
+footer {
     width: 100%;
     background-color: azure;
     padding: 40px 0;
@@ -159,55 +174,55 @@ footer{
 
 }
 
-.box{
+.box {
     position: relative;
     top: 0px;
     left: 0px;
     bottom: 0px;
     right: 0px;
     width: 20px;
-    background-color: azure;
+    background-color: #f0ffff;
     border: 1px solid black;
     padding-bottom: 20px;
     transition: height 0.1s ease, background-color 0.5s ease, left 1s ease, transform 1s ease;
 }
 
-
-
-.box-3{
+.box-3 {
     height: 200px;
 }
 
-.array-btn{
+.array-btn {
     cursor: pointer;
 }
 
-.bubble-sort-btn{
+.bubble-sort-btn {
     cursor: pointer;
 }
 
-.arrow{
+.arrow {
   background: #2c3e50;
+  font-size: 20px;
   color: white;
-  width: 25px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   left: 0;
-  bottom:150px;
+  bottom: 150px;
   transition: transform 0.3s ease;
   opacity: 0;
   border-radius: 3px;
+  text-align: center;
 }
 
-.show{
+.show {
   opacity: 1;
 }
 
-.found{
+.found {
   transform: translateY(10px);
 }
 
-.arrow::before{
+.arrow::before {
   content: "";
   display: block;
   position: relative;
@@ -220,7 +235,7 @@ footer{
   border-bottom: 8px solid #2c3e50;
 }
 
-.step-sort-btn-2{
+.step-sort-btn-2 {
     cursor: pointer;
 }
 
@@ -248,7 +263,7 @@ footer{
     transform: translateY(-7px);
   }
 
-  .button:active{
+  .button:active {
     transform: translateY(5px);
   }
 
