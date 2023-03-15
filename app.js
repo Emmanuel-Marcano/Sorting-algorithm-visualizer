@@ -41,7 +41,7 @@ const tutorialInfo = [
         secondaryTitle: "Short Tutorial",
         timeComplexity: "This tutorial will quickly walk you through the set up and features of the algorithm visualizer. It will also briefly give you an explanation of the included algorithms and how they work.",
         tutorialH31: "The Big 3",
-        description: "The sorting algorithm visualizer includes the 3 elemental sorting algorithms. They are commonly used and thrive at sorting lists that don't have too many elements. I will be explaining why soon. ",
+        description: "The sorting algorithm visualizer includes the 3 elemental sorting algorithms. They are commonly used and thrive at sorting lists that don't have too many elements.",
         tutorialH32: "Set Up",
         description2: "<ul><li><b>Select the amount</b> of elements you want in the array by using the range input slider at the bottom left of the screen</li><li><b>Select the speed</b> at which you want the array to get sorted with the bottom right slider</li><li><b>Select the algorithm</b> you want to run on the array with the buttons at the top of the screen</li></ul>",
         image: "" 
@@ -50,7 +50,7 @@ const tutorialInfo = [
     {
         title: "Big O Notation",
         secondaryTitle: "What is it?",
-        timeComplexity: "In programming, there can be multiple ways to solve a problem. How can we know which solution is more appropiate to use? Luckily, there is a way to compare the performance of different algorithms using the Big O Notation. It does so by calculating the time taken to run an algorithm as the input grows in size.",
+        timeComplexity: "In programming, there can be multiple ways to solve a problem. How can we know which solution is more appropiate to use? Luckily, there is a way to compare the performance of different algorithms by using the Big O Notation. It does so by calculating the time taken to run an algorithm as the input grows in size.",
         tutorialH31: "Time Complexity",
         description: "The Big O is calculated by counting the number of operations the computer has to perform to run an algorithm.",
         tutorialH32: "Space Complexity",
@@ -60,69 +60,61 @@ const tutorialInfo = [
 
     {
         title: "Bubble Sort",
-        secondaryTitle: "Time Complexity",
-        timeComplexity: "O/N<sup>2</sup>",
-        tutorialH31: "Description",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
-        tutorialH32: "Use Case",
-        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
+        secondaryTitle: "Description",
+        timeComplexity: "Bubble Sort is a sorting algorithm where the largest values bubble up to the top. This is accomplished by comparing every value, starting from the first one, to the one in front of it. The largest of the two values gets swapped to the front. This behaviour creates a bubbling effect where the largest values ascend to the top of the list one by one.",
+        tutorialH31: "Time Complexity",
+        description: "O/N<sup>2</sup>",
+        tutorialH32: "Visualizer",
+        description2: "Set the algorithm visualizer to have a speed of 800ms or more to clearly see what is happening. Starting with the first 2 values, a comparison is made to figure out if the left value is larger than the right value, if it is, they swap positions. This process is repeated for every value in the list until it completely sorted.",
         image: "connection.png" 
     },
 
     {
         title: "Selection Sort",
-        secondaryTitle: "Time Complexity",
-        timeComplexity: "O/N2",
-        tutorialH31: "Description",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
-        tutorialH32: "Use Case",
-        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
+        secondaryTitle: "Description",
+        timeComplexity: "Selection sorting is a sorting algorithm similar to bubble sort, but instead of the largest values ascending to the top of the list, in selection sort, the smallest values get selected one by one and get placed into their sorted position at the beginning of the list.",
+        tutorialH31: "Time Complexity",
+        description: "O/N<sup>2</sup>",
+        tutorialH32: "Visualizer",
+        description2: "When you run the selection sort algorithm, during every iteration, the current smallest value gets highlighted with purple. Once the smallest value within an iteration is found, it gets positioned in it's corresponding spot in the list",
         image: "connection.png" 
     },
 
     {
         title: "Insertion Sort",
-        secondaryTitle: "Time Complexity",
-        timeComplexity: "O/N2",
-        tutorialH31: "Description",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
-        tutorialH32: "Use Case",
-        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
+        secondaryTitle: "Description",
+        timeComplexity: "Insertion sort takes a unique approach compared to the other two. It starts by creating a sorted section of the list, then gradually selecting an element and inserting it in it's correct position of the sorted section. This process it repeated for every single item in the list until it is sorted.",
+        tutorialH31: "Time Complexity",
+        description: "O/N<sup>2</sup>",
+        tutorialH32: "Visualizer",
+        description2: "To fully visualize this algorithm, select an amount of 40 elements with a speed of 500ms. When you run it, an arrow will appear at the bottom of the list with the currently selected element to be inserted in it's corresponding position in the sorted section of the list. ",
         image: "connection.png" 
     },
 
     {
-        title: "Insertion Sort",
-        secondaryTitle: "Time Complexity",
-        timeComplexity: "O/N2",
-        tutorialH31: "Description",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
-        tutorialH32: "Use Case",
+        title: "Quick Sort",
+        secondaryTitle: "Description",
+        timeComplexity: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        tutorialH31: "Time Complexity",
+        description: "O/N<sup>2</sup>",
+        tutorialH32: "Visualizer",
+        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
+        image: "connection.png" 
+    },
+    {
+        title: "Merge Sort",
+        secondaryTitle: "Description",
+        timeComplexity: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
+        tutorialH31: "Time Complexity",
+        description: "O/N<sup>2</sup>",
+        tutorialH32: "Visualizer",
         description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
         image: "connection.png" 
     },
 
-    {
-        title: "Insertion Sort",
-        secondaryTitle: "Time Complexity",
-        timeComplexity: "O/N2",
-        tutorialH31: "Description",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
-        tutorialH32: "Use Case",
-        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
-        image: "connection.png" 
-    },
+    
 
-    {
-        title: "Insertion Sort",
-        secondaryTitle: "Time Complexity",
-        timeComplexity: "O/N2",
-        tutorialH31: "Description",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam saepe sunt cumque id unde nesciunt itaque. Officiis, nihil enim quam voluptate vero laborum culpa non unde maiores omnis ad deleniti.",
-        tutorialH32: "Use Case",
-        description2: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, adipisci possimus.",
-        image: "connection.png" 
-    }
+    
 ]
 
 tutorialNextBtn.addEventListener("click", function(){
@@ -165,8 +157,8 @@ tutorialNextBtn.addEventListener("click", function(){
     tutorialTitle.innerText = tutorialInfo[tutorialPageCounter].title
     tutorialSecTitle.innerText = tutorialInfo[tutorialPageCounter].secondaryTitle
     tutorialTimeComplex.innerHTML = tutorialInfo[tutorialPageCounter].timeComplexity
-    tutorialH31.innerText = tutorialInfo[tutorialPageCounter].tutorialH31
-    tutorialDescription.innerText = tutorialInfo[tutorialPageCounter].description
+    tutorialH31.innerHTML = tutorialInfo[tutorialPageCounter].tutorialH31
+    tutorialDescription.innerHTML = tutorialInfo[tutorialPageCounter].description
     tutorialH32.innerText = tutorialInfo[tutorialPageCounter].tutorialH32
     tutorialDescription2.innerHTML = tutorialInfo[tutorialPageCounter].description2
 }
@@ -222,7 +214,7 @@ tutorialPreviousBtn.addEventListener("click", function(){
     tutorialSecTitle.innerText = tutorialInfo[tutorialPageCounter].secondaryTitle
     tutorialTimeComplex.innerHTML = tutorialInfo[tutorialPageCounter].timeComplexity
     tutorialH31.innerText = tutorialInfo[tutorialPageCounter].tutorialH31
-    tutorialDescription.innerText = tutorialInfo[tutorialPageCounter].description
+    tutorialDescription.innerHTML = tutorialInfo[tutorialPageCounter].description
     tutorialH32.innerText = tutorialInfo[tutorialPageCounter].tutorialH32
     tutorialDescription2.innerHTML = tutorialInfo[tutorialPageCounter].description2
 })
